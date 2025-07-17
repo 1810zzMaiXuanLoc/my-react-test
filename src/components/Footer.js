@@ -1,0 +1,9 @@
+import React from 'react';
+
+export default function Footer() {
+  return (
+    <footer className="bg-gray-900 text-white p-4 mt-10 text-center">
+      <p>&copy; 2025 My Store. All rights reserved.</p>
+    </footer>
+  );
+}
