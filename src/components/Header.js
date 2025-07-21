@@ -46,7 +46,7 @@ function Header() {
         {/* Menu items */}
         <nav className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-yellow-300">Home</Link>
-          <Link to="/products" className="hover:text-yellow-300">Products</Link>
+          <Link to="/" className="hover:text-yellow-300">Products</Link>
           <Link to="/users" className="hover:text-yellow-300">Users</Link>
           <Link to="/about" className="hover:text-yellow-300">About</Link>
         </nav>
@@ -56,7 +56,7 @@ function Header() {
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2">
           <Link to="/" className="block hover:text-yellow-300">Home</Link>
-          <Link to="/products" className="block hover:text-yellow-300">Products</Link>
+          <Link to="/" className="block hover:text-yellow-300">Products</Link>
           <Link to="/users" className="block hover:text-yellow-300">Users</Link>
           <Link to="/about" className="block hover:text-yellow-300">About</Link>
         </div>

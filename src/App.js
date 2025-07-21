@@ -6,11 +6,13 @@ import Header from './components/Header.js';
 import ProductDetail from './pages/ProductDetail.js';
 import UserList from './pages/UserList.js';
 import UserDetail from './pages/UserDetail.js';
+import HeartFall from './components/HeartFall.js';
 
 function App() {
   return (
     <>
-      
+      <div className="relative overflow-hidden">
+        <HeartFall/>
       <BrowserRouter>
       <Header />
         <Routes>
@@ -21,7 +23,7 @@ function App() {
         </Routes>
       <Footer />
       </BrowserRouter>
-    
+    </div>
     </>
   );
 }
