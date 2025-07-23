@@ -9,9 +9,10 @@ import ProductDetail from './pages/ProductDetail.js';
 import UserList from './pages/UserList.js';
 import UserDetail from './pages/UserDetail.js';
 import HeartFall from './components/HeartFall.js';
-import Register from './components/Register.js';
+import RegisterForm from './components/RegisterForm.js';
 import FakeUser from './pages/FakeUser.js';
 import Sidebar from './components/Sidebar.js';
+import Profile from './pages/Profile.js';
 function App() {
   return (
     <>
@@ -28,7 +29,8 @@ function App() {
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/users" element={<UserList />} />
               <Route path="/users/:id" element={<UserDetail />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/register" element={<RegisterForm />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
         </div>

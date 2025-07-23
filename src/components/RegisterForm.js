@@ -2,7 +2,7 @@ import React from 'react';
 import { set, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-export default function Register() {
+export default function RegisterForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const navigator = useNavigate();
   const [loading, setLoading] = useState(false);

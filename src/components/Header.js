@@ -20,7 +20,7 @@ function Header() {
           <h1 className="text-xl font-bold">REACT TEST MAI XUÂN LỘC</h1>
         </Link>
 {user ? (
-  <div className="relative">
+<div className="relative">
     <div
       className="flex items-start space-x-3 rounded-md cursor-pointer"
       onClick={() => setShowInfo(!showinfo)}
@@ -29,7 +29,7 @@ function Header() {
         <img
           src="https://ui-avatars.com/api/?name=Mai+Xuan+Loc&background=random"
           alt="avatar"
-          className="w-11 h-11 rounded-full border-2 border-white object-cover"
+  className="w-11 h-11 min-w-11 rounded-full border-2 border-white object-cover"
         />
       </div>
       <div className="text-white">
@@ -39,7 +39,7 @@ function Header() {
     </div>
 
     {showinfo && (
-      <div className="info_log absolute bg-gray-700 shadow-lg rounded top-full mt-[13px] p-4 w-64">
+      <div className="info_log absolute bg-gray-700 shadow-lg rounded top-full mt-[13px] p-4 w-64 right-0">
         
             <div
                          className="flex items-center space-x-3 border-b-2 border-gray-400 w-full pb-3"
