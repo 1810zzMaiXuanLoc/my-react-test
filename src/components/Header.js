@@ -1,66 +1,89 @@
-// components/Header.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const navigate= useNavigate();
+  const [user, setUser] = useState(null);
+  const [showinfo, setShowInfo] = useState(false);
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setUser(user);
+    }
+  }, []);
 
   return (
-    <header className="bg-gray-900 text-white">
+    <header className="bg-gray-900 text-white relative z-50">
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/">
           <h1 className="text-xl font-bold">REACT TEST MAI XUÂN LỘC</h1>
         </Link>
-
-        {/* Hamburger icon */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white focus:outline-none"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isOpen ? (
-              // Icon X (đóng)
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              // Icon menu (☰)
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-
-        {/* Menu items */}
-        <nav className="hidden md:flex space-x-6">
-          <Link to="/" className="hover:text-yellow-300">Home</Link>
-          <Link to="/" className="hover:text-yellow-300">Products</Link>
-          <Link to="/users" className="hover:text-yellow-300">Users</Link>
-          <Link to="/about" className="hover:text-yellow-300">About</Link>
-        </nav>
+{user ? (
+  <div className="relative">
+    <div
+      className="flex items-start space-x-3 rounded-md cursor-pointer"
+      onClick={() => setShowInfo(!showinfo)}
+    >
+      <div className="img">
+        <img
+          src="https://ui-avatars.com/api/?name=Mai+Xuan+Loc&background=random"
+          alt="avatar"
+          className="w-11 h-11 rounded-full border-2 border-white object-cover"
+        />
       </div>
+      <div className="text-white">
+        <h3 className="font-semibold text-sm">{user.name}</h3>
+        <p className="text-xs text-gray-300">{user.email}</p>
+      </div>
+    </div>
 
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2">
-          <Link to="/" className="block hover:text-yellow-300">Home</Link>
-          <Link to="/" className="block hover:text-yellow-300">Products</Link>
-          <Link to="/users" className="block hover:text-yellow-300">Users</Link>
-          <Link to="/about" className="block hover:text-yellow-300">About</Link>
-        </div>
-      )}
+    {showinfo && (
+      <div className="info_log absolute bg-gray-700 shadow-lg rounded top-full mt-[13px] p-4 w-64">
+        
+            <div
+                         className="flex items-center space-x-3 border-b-2 border-gray-400 w-full pb-3"
+                           >                
+                      <div className="img">
+                        <img
+                          src="https://ui-avatars.com/api/?name=Mai+Xuan+Loc&background=random"
+                          alt="avatar"
+                          className="w-11 h-11 rounded-full border-2 border-white object-cover"
+                        />
+                      </div>
+                      <div className="text-white">
+                        <h3 className="font-semibold text-sm">{user.name}</h3>
+                        <p className="text-xs text-gray-300">{user.email}</p>
+                      </div>
+          </div>
+            <Link to="/profile" className='flex p-1 space-x-3 mt-1 items-center hover:bg-blue-500 rounded-md pb-2'>
+            <span className='text-xl'>👤</span>
+            <p className='text-white text-sm'>Tài khoản của tôi</p>
+            </Link>
+            <div className='flex items-center p-2 text-white text-sm space-x-3 hover:bg-blue-500 rounded-md cursor-pointer' onClick={()=>{
+              localStorage.removeItem('user');
+              navigate("/")
+              window.location.reload();
+            }}>
+             
+                <span className='text-xl'>↩️</span>
+                <p> Đăng Xuất</p>
+             
+            </div>
+      </div>
+    )}
+  </div>
+) : (
+  <Link
+    to="/register"
+    className="block bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition"
+  >
+    Đăng ký
+  </Link>
+)}
+
+       
+      </div>
     </header>
   );
 }
