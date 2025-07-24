@@ -23,16 +23,16 @@ function App() {
       <Header />
         <div className="flex overflow-hidden min-h-screen">
           <Sidebar />
-          <main className="flex-1 overflow-y-auto p-4">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/users" element={<UserList />} />
-              <Route path="/users/:id" element={<UserDetail />} />
-              <Route path="/register" element={<RegisterForm />} />
-              <Route path="/profile" element={<Profile />} />
-            </Routes>
-          </main>
+           <main className="flex-1 overflow-y-auto p-4">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/product/:id" element={<ProductDetail />} />
+                  <Route path="/users" element={<UserList />} />
+                  <Route path="/users/:id" element={<UserDetail />} />
+                  <Route path="/register" element={<RegisterForm />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Routes>
+              </main>
         </div>
       <Footer />
        </div>

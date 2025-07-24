@@ -2,7 +2,7 @@ import React from 'react';
 import  { Link } from 'react-router-dom';
 export default function Productcard({ product }) {
   return (
-<div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+<div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow ">
       <div className="px-4 py-2">
         <h1 className="text-gray-900 font-bold text-xl uppercase truncate">{product.title}</h1>
         <p className="text-gray-600 text-sm mt-1 line-clamp-2">{product.description}</p>

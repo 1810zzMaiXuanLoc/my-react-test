@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react'
 
 export default function Profile() {
+    const[loading, setLoading]=useState(true);
     const [user,setUser]=useState(null);
     useEffect(()=>{
         const fetchUser=JSON.parse(localStorage.getItem('user'));
-        setUser(fetchUser);
-        console.log(fetchUser)
+        setTimeout(() => {
+          setUser(fetchUser);
+          setLoading(false);
+        }, 500);
+      
         
     },[]);
+     if (loading) {
+  return (
+    <div className='fixed inset-0 z-50 bg-gray-800 flex justify-center items-center backdrop-blur-lg'>
+        <div className='animate-ping w-12 h-12 rounded-full border-4 border-blue-300 border-dashed'></div>
+    </div>  
+  );
+}
     if(!user){
         return <div className='text-center p-6'>Bạn chưa đăng nhập</div>
     }

@@ -7,13 +7,14 @@ export default function RegisterForm() {
   const navigator = useNavigate();
   const [loading, setLoading] = useState(false);
   const onSubmit = (data) => {
-    setLoading(true);
+    
     localStorage.setItem('user', JSON.stringify(data));
     setTimeout(() => {
-         navigator("/")
-         console.log("Đăng ký thành công:", data);
+         alert('Đăng ký thành công');
+          navigator('/');
+         setLoading(true);
          window.location.reload();
-    }, 2000);
+    }, 500);
    
   };
  if (loading) {

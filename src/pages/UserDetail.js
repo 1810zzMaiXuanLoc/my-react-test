@@ -16,13 +16,11 @@ export default function UserDetail() {
              
             });
     }, [id]);
-     if (loading) {
+   if (loading) {
   return (
-    <div className="flex justify-center items-center h-screen space-x-2">
-      <div className="w-3 h-3 bg-gray-500 rounded-full animate-bounce"></div>
-      <div className="w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-150"></div>
-      <div className="w-3 h-3 bg-gray-500 rounded-full animate-bounce delay-300"></div>
-    </div>
+    <div className='fixed inset-0 z-50 bg-gray-800 flex justify-center items-center backdrop-blur-lg'>
+        <div className='animate-ping w-12 h-12 rounded-full border-4 border-blue-300 border-dashed'></div>
+    </div>  
   );
 }
     return (
